@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'hoyexer688@dmonies.com/flask-test-app'
+        DOCKER_IMAGE = 'dockerd1new/flask-test-app'
         IMAGE_TAG    = "${BUILD_NUMBER}"
         DOCKER_HUB_CREDS = 'docker-hub-credentials-id'
     }
