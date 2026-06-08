@@ -16,7 +16,7 @@ pipeline {
                 checkout scm
 
                 echo 'Executing application python testing layers...'
-                sh 'pip install --no-cache-dir --break-system-packages -r requirements.txt && pytest test_app.py'
+                sh 'pip install --no-cache-dir --break-system-packages -r requirements.txt && python3 -m pytest test_app.py'
 
                 echo 'Building image with a secure static format...'
                 
