@@ -44,7 +44,14 @@ pipeline {
     post {
         always {
             echo '🧹 Cleaning up local images...'
-            sh "docker rmi ${DOCKER_IMAGE}:${IMAGE_TAG} ${DOCKER_IMAGE}:latest || true"
+            sh "docker rmi ${DOCKER_IMAGE}:${IMAGE_TAG} || true"
+            sh "docker rmi ${DOCKER_IMAGE}:latest || true"
+        }
+        success {
+            echo '✅ Pipeline Automation Complete! Your updated app is now live on Docker Hub.'
+        }
+        failure {
+            echo '❌ Pipeline Execution Failed. Review the terminal execution details above to debug.'
         }
     }
 }
